@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	
+	
+		<persistence-unit name="MySQL_ConnecterJ_5_1_36" transaction-type="JTA" >
+			<description>generated-persistence-unit</description>
+					<provider>org.hibernate.ejb.HibernatePersistence</provider>
+      			<class>com.bluedream.sales1.domain.Employees</class>
+      			<class>com.bluedream.sales1.domain.Customers</class>
+      			<class>com.bluedream.sales1.domain.UserRoles</class>
+      			<class>com.bluedream.sales1.domain.Users</class>
+      			<class>com.bluedream.sales1.domain.Offices</class>
+      			<class>com.bluedream.sales1.domain.Products</class>
+      			<class>com.bluedream.sales1.domain.Productlines</class>
+      			<class>com.bluedream.sales1.domain.Payments</class>
+      			<class>com.bluedream.sales1.domain.Orderdetails</class>
+      			<class>com.bluedream.sales1.domain.Orders</class>
+   			<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		</persistence-unit>
+
+	
+</persistence>

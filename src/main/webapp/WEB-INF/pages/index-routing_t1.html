@@ -1,0 +1,123 @@
+<!doctype html>
+<html ng-app="MenuApp1" ng-controller="AppController">
+<head>
+    <meta charset="utf-8" />
+
+    <title>AngularJS Routing</title>
+
+    <!-- Load AngularJS or framework lib. -->
+    <script src="../resources/js/lib/angular/angular.js"></script>
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css" />
+
+    <!-- Load my script & css -->
+    <link rel="stylesheet" href="../resources/css/myBootstrap/bootstrap-MyStyle-Blue_1.0.css" />
+    <!-- my stylecheet -->
+    <!--<link rel="stylesheet" href="../resources/css/myTheme/myGreenStyle_1.css" />-->
+    <link rel="stylesheet" href="../resources/css/myTheme/myBlueStyle_1.css" />
+    <script src="../resources/js/common/routes/routeApp_2.js"></script>
+    <script src="../resources/js/controllers/basic_data/CustomerController_2.js"></script>
+
+
+    <style type="text/css">
+
+        a {
+            color: #333333 ;
+        }
+
+        a.on {
+            color: #CC0000 ;
+            font-weight: bold ;
+            text-decoration: none ;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--
+<h1>
+    AngularJS Routing - Index2 home page
+</h1>
+
+<p>
+    Current Render Action:
+
+    <strong ng-bind="renderAction">Unknown</strong>
+</p>
+-->
+<!--
+    For the navigation, we'll be conditionally adding the "on"
+    class based on the state of the current scope.
+-->
+
+
+    <!--
+    <a href="#/home" ng-class="{ on: isHome }">Home</a>
+    <a href="#/customerList" ng-class="{ on: isCustomerList }">CustomerList</a>
+    <a href="#/customer/aaa" ng-class="{ on: isCustomer }">A Customer</a>
+    -->
+<!-- Navbar -->
+ <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#/home" ng-class="{ on: isHome }">Sales/Order Template</a>
+            <ul class="nav" >
+                <li><a href="#/home">Home Page</a></li>
+                <li><a href="#/companyInfo">Company Info</a></li>
+                <li><a href="#/customerList" ng-class="{ on: isCustomerList }">CustomerList</a></li>
+                <li><a href="#/customer/aaa" ng-class="{ on: isCustomer }">A Customer</a></li>
+                <li><a href="#/salesInfo">Sales/Orders</a></li>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+<hr/>
+<p></p>
+
+
+<!--
+    When the routes changes, we're going to be setting up the
+    renderPath - an array of values that help define how the
+    page is going to be rendered. We can use these values to
+    conditionally show / load parts of the page.
+-->
+
+
+<!-- 與 index-routing_t1.html 不同處, Modify by Charlotte -->
+<div>
+    <hr class="" />
+    <!--<div ng-view></div>-->
+    <!-- Content -->
+    <div class="container">
+        <div class="row">
+            <div class="">
+
+                <!-- Dynamic content -->
+                <div ng-switch on=" renderPath[ 0 ]">
+
+                    <div ng-switch-when="home" ng-include=" 'common/Home.html' "></div>
+                    <div ng-switch-when="customerList" ng-include=" 'basic_data/CustomerLayout_2.html' "></div>
+                    <div ng-switch-when="customer" ng-include=" 'contact.htm' "></div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--
+<div ng-switch on=" renderPath[ 0 ]">
+
+    <div ng-switch-when="home" ng-include=" 'common/Home.html' "></div>
+    <div ng-switch-when="customerList" ng-include=" 'basic_data/CustomerLayout.html' "></div>
+    <div ng-switch-when="customer" ng-include=" 'contact.htm' "></div>
+
+</div>
+-->
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+ 
+ 	<!-- ******************************************************************** -->
+	<!-- Include context files from different layers -->
+	<!-- ******************************************************************** -->
+	
+	
+	<import resource="classpath:ClassicModels15_1-dao-context.xml" />
+	<import resource="classpath:ClassicModels15_1-security-context.xml" />
+	<import resource="classpath:ClassicModels15_1-service-context.xml" />
+	<import resource="classpath:ClassicModels15_1-web-context.xml" />
+	
+	<!-- <context:component-scan base-package="com.bluedream.template1.viewmodel" /> -->
+</beans>

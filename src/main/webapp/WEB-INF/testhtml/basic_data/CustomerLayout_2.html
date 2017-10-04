@@ -1,0 +1,103 @@
+<!--
+  * include in
+  1.index-routing_t1.html
+  2.menu/dropdown_toggle_t1.html
+-->
+<div ng-controller="CustListCtrl"> <!-- start scope of Controller, CustListCtrl in CustomerController_2.js -->
+    <div class="alert alert-error" ng-show="error">
+       {{errorMessage}}
+    </div>
+<!--form name="CustEditForm" class="form-horizontal" role="form"-->
+<form name="CustEditForm" class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="idCustNumber">Customer Number</label>
+
+        <div class="controls">
+            <input type="text" id="idCustNumber" ng-model="customer.customerNumber" placeholder="Customer Number" readonly min="10">
+
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="idCustName">Customer Name</label>
+
+        <div class="controls">
+            <input type="text" id="idCustName" name="inpCustName"  ng-model="customer.customerName" placeholder="Customer Name" required min="20">
+            <span class="error" ng-show="CustEditForm.inpCustName.$error.required">Required!</span><br>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="idCreditLimit">Credit Limit</label>
+
+        <div class="controls">
+
+
+            <input class="span3" type="number" id="idCreditLimit" ng-model="customer.creditLimit" placeholder="Credit Limit" required min="1000">
+            <span class="add-on">NT$</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <label class="checkbox">
+                <input type="checkbox" ng-model="train.diesel"> Is Diesel
+            </label>
+        </div>
+        <hr />
+        <div class="controls">
+            <button type="button" class="btn btn-primary" ng-disabled="!customer.customerName || !customer.creditLimit" ng-hide="editMode" ng-click="addNewCustomer(customer)">Add Customer</button>
+            <button type="button" class="btn btn-primary" ng-disabled="!customer.customerName || !customer.creditLimit" ng-show="editMode" ng-click="updateCustomer(customer)">Save Customer</button>
+            <button type="button" class="btn" ng-click="resetCustForm()">Reset</button>
+        </div>
+    </div>
+    <!-- for test, debug -->
+    <!--
+    <tt>CustEditForm.input.$valid = {{CustEditForm.inpCustNumber.$valid}}</tt><br>
+    <tt>CustEditForm.input.$error = {{CustEditForm.inpCustNumber.$error}}</tt><br>
+    <tt>CustEditForm.$valid = {{CustEditForm.$valid}}</tt><br>
+    <tt>CustEditForm.$error.required = {{!!CustEditForm.$error.required}}</tt><br>
+    -->
+</form>
+<hr />
+<h3>Customer List</h3>
+<div class="alert alert-info" ng-show="CustomerList.length == 0">
+    No Customer found
+</div>
+
+<table class="table table-bordered table-striped table-hover" ng-show="CustomerList.length > 0">
+    <thead>
+        <tr class="gridHeadStyle1">
+        <!--tr class="gridHeaderStyle" -->
+            <!--
+            <th style="text-align: center; width: 25px;">customerNumber</th>
+            <th style="text-align: center;">customerName</th>
+            <th style="text-align: center;">creditLimit</th>
+            -->
+            <th class="gridHeadBoderStyle1" style="width:25px;">custNumber</th>
+            <th class="gridHeadBoderStyle1">customerName</th>
+            <th class="gridHeadBoderStyle1">creditLimit</th>
+            <!--<th style="text-align: center;">Diesel</th> -->
+            <!--<th style="text-align: center;">Action</th>-->
+            <th class="gridHeadBoderStyle1">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="customer in CustomerList | orderBy:predicate" class="gridCellStyle1">
+            <td class="gridCellBoderStyle1" style="text-align: center;"><span class="badge">{{customer.customerNumber}}</td>
+            <td>{{customer.customerName}}</td>
+            <td>{{customer.creditLimit}}</td>
+            <!--<td style="text-align: center;width: 20px;"><span ng-show="train.diesel" class="icon-ok"></span></td> -->
+            <td style="width:100px;text-align: center;">
+                <button class="btn btn-mini btn-warning" ng-click="removeCustomer(customer.customerNumber)">Remove</button>
+                <!--<button class="btn btn-mini btn-primary" ng-click="editCustomer(customer)">Edit</button>-->
+                <button class="btn btn-mini btn-success" ng-click="editCustomer(customer)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- to do: status_bar message -->
+<div class="row">
+        <div class="alert alert-success pull-center small">{{status_bar + 'status_bar'}}</div>
+</div>
+<button class="btn btn-danger" ng-show="CustomerList.length > 1" ng-click="removeAllCustomers()">Remove All Customer Data</button>
+
+
+</div><!-- end scope of Controller -->

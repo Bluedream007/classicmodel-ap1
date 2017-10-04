@@ -1,0 +1,97 @@
+<!--
+ Note:
+ 1.index_t1.html & index.html(不能用) 共用邏輯與處理
+ 2.index_t1.html & index.html 差異:
+   a.主選單顯示
+ 3.CSS 調整; 兩個Theme(Blue, Green)
+   a.DataGrid - in /css/myTheme
+   b.bootstrap - in /myBootstrap
+
+-->
+<!doctype html>
+<html lang="en" ng-app="AngularSpringApp">
+<head>
+    <meta charset="utf-8">
+    <title>Service App</title>
+    <!--<link rel="stylesheet" href="../resources/css/app.css"/>-->
+    <script src="../resources/js/lib/angular/angular.js"></script>
+    <!--<link rel="stylesheet" href="../resources/bootstrap-3.1.1/css/bootstrap.css" />  畫面錯位-->
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css" />
+    <!--<link rel="stylesheet" href="../resources/css/myBootstrap/bootstrap-MyStyle-Green_1.0.css" />-->
+    <link rel="stylesheet" href="../resources/css/myBootstrap/bootstrap-MyStyle-Blue_1.0.css" />
+
+
+    <!--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- For ng-grid Lib. -->
+    <!--
+    <link rel="stylesheet" type="text/css" href="../resources/css/ng-grid/ng-grid-2.0.7.css" />
+    <script type="text/javascript" src="../resources/js/lib/ng-grid/ng-grid-2.0.7.debug.js"></script>
+    -->
+    <!-- For jquery Lib. -->
+    <!--<script src="../resources/js/lib/jquery/jquery-1.9.0.js"></script>-->
+    <style type="text/css">
+        body {
+            padding-top:60px;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#/home">Sales/Order Template</a>
+                <ul class="nav" >
+                   <li><a href="#/companyInfo">Company Info</a></li>
+                   <li><a href="#/customers">Customers</a></li>
+                   <li><a href="#/salesInfo">Sales/Orders</a></li>
+                </ul>
+        </div>
+    </div>
+</div>
+
+<div>
+    <hr class="" />
+    <!--<div ng-view></div>-->
+    <!-- Content -->
+    <div class="container">
+        <div class="row">
+            <div class="">
+
+                <!-- Dynamic content -->
+                <div ng-view></div>
+
+            </div>
+            <!--
+            <div class="span4">
+                <div class="well">
+                    <h3>Side Bar</h3>
+                    <p>This is static content that will stay the same between pages.</p>
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="http://angularjs.org">Angular.js</a></li>
+                        <li><a href="http://andru.co">andru.co</a></li>
+                    </ul>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+
+</div>
+
+
+<script src="../resources/js/common/routes/routeApp_1.js"></script>
+<script src="../resources/js/common/services/services.js"></script>
+<script src="../resources/js/controllers/RailwayStationController.js"></script>
+<script src="../resources/js/controllers/basic_data/CompanyInfoController.js"></script>
+<script src="../resources/js/controllers/basic_data/CustomerController_1.js"></script>
+<!--<script src="../resources/js/controllers/basic_data/CustomerController_2.js"></script>-->
+<script src="../resources/js/controllers/common/HomeController.js"></script>
+<script src="../resources/js/common/filters/filters.js"></script>
+<script src="../resources/js/common/directives/directives.js"></script>
+<!-- my stylecheet -->
+<!--<link rel="stylesheet" href="../resources/css/myTheme/myGreenStyle_1.css" />-->
+<link rel="stylesheet" href="../resources/css/myTheme/myBlueStyle_1.css" />
+</body>
+</html>
