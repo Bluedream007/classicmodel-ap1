@@ -441,6 +441,10 @@
           <artifactId>hibernate</artifactId>
           <groupId>org.hibernate</groupId>
         </exclusion>
+        <exclusion>
+        	<groupId>javax.jms</groupId>
+        	<artifactId>jms</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
